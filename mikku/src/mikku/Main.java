@@ -2,6 +2,7 @@ package mikku;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 public class Main 
 {
 	public static void main(String args[]) throws IOException
@@ -20,7 +21,11 @@ public class Main
 		String cable;
 		String wifi;
 		String laundary;
+		int roomNo;
+		
 		BufferedReader b= new BufferedReader(new InputStreamReader(System.in));
+		//Scanner b=new Scanner(System.in);
+		
 		do
 		{
 			//for register name
@@ -44,92 +49,56 @@ public class Main
 		nanditha.setProoftype(prooftype);
 		nanditha.setProofid(proofid);
 		nanditha.register();
-		//for booking room
 		int total=0;
-		//object for hotelroom
+		
 		Hotelroom room=new Hotelroom();
-		String flag;
+		String flag = null;
 		do
 		{
-		System.out.println("Do you want ac?");
+		System.out.println("Menu\n1.Book\n2.Check status\n3.Exit\nEnter your choice");
+		int choice=Integer.parseInt(b.readLine());
+		switch(choice)
+		{
+		case 1:
+		{
+		System.out.println("Booking:\nPlease choose the services required");
+		System.out.println("AC/non-AC(AC/nAC)");
 		ac=b.readLine();
-		if(ac.equals("yes"))
-		    {
-			room.setAc("AC service is selected.");
-			total=total+1000;
-			System.out.println(total);
-			}
-		else if(ac.equals("no"))
-		{
-			room.setAc("Non-AC service is selected.");
-			total=total+750;
-			System.out.println(total);
-		}
-		
-		System.out.println("Do you want double cot?");
+		room.setAc(ac);
+		System.out.println("Cot(Single/Double)");
 		cot=b.readLine();
-		if(cot.equals("yes"))
-		{
-			room.setCot("double cot service is selected.");
-			total=total+350;
-			System.out.println(total);
-		}
-		else if(cot.equals("no"))
-		{
-			room.setCot("Single cot service is selected.");
-			total=total+0;
-			System.out.println(total);
-		}
-		System.out.println("do you want cable connection?");
+		room.setCot(cot);
+		System.out.println("With cable connection/without cable connection(C/nC)");
 		cable=b.readLine();
-		if(cable.equals("yes"))
-		{
-			room.setCable("with cable connection is selected.");
-			total=total+50;
-			System.out.println(total);
-		}
-		else if(cable.equals("no"))
-		{
-			room.setCable("without cable connection is selected.");
-			total=total+0;
-			System.out.println(total);
-		}
-		System.out.println("do you want Wi-Fi?");
+		room.setCable(cable);
+		System.out.println("Wi-Fi needed or not(W/nW)");
 		wifi=b.readLine();
-		if(wifi.equals("yes"))
-		{
-			room.setWifi("WiFi service is selected");
-			total=total+50;
-			System.out.println(total);
-		}
-		else if(wifi.equals("no"))
-		{
-			room.setWifi("without WiFi service is selected");
-			total=total+0;
-			System.out.println(total);
-		}
-		System.out.println(" Do want Laundary service?");
+		room.setWifi(wifi);
+		System.out.println("Laundry service needed or not(L/nL)");
 		laundary=b.readLine();
-		if(laundary.equals("yes"))
-		{
-			room.setLaundary("with laundary service is selected");
-			total=total+50;
-		}
-		else if(laundary.equals("no"))
-		{
-			room.setLaundary("without laundary service is selected");
-			total=total+0;
-		}
-		System.out.println("do you want to proceed? then press y else n");
-		
+		room.setLaundary(laundary);
+		room.display();	
+		System.out.println("do you want to proceed? (yes/no)");
 		flag=b.readLine();
-		if(flag.equals("y"))
+		if(flag.equalsIgnoreCase("yes"))
 		{
-			System.out.println("the total amount is "+total);
+			room.bookRoom();
 		}
-		
-		}while(flag.equals("n"));
-		System.out.println("\ndo you want to continue......then press y");
+		break;
+		}
+		case 2:
+		{
+			System.out.println("Check status\nEnter room number");
+			roomNo=Integer.parseInt(b.readLine());
+		    room.checkStatus(roomNo);
+		    break;
+		}
+		case 3:
+		{
+			break;
+		}
+		}
+		}while(flag.equalsIgnoreCase("yes"));
 		n=b.readLine();
 		}while(n.equals("y"));
 		}

@@ -46,18 +46,7 @@ public class Customer {
 	public void setProofid(String proofid) {
 		this.proofid = proofid;
 	}
-	
-	/*Customer(String name,String address,String contact,String email,String prooftype,String proofid)
-	Customer()
-	{
-		this.name=name;
-		this.address=address;
-		this.contact=contact;
-		this.email=email;
-		this.prooftype=prooftype;
-		this.proofid=proofid;
-	}
-	*/void register()
+	void register()
 	{
 		++a;
 		System.out.println(getName()+"\n"+getAddress()+"\n"+getContact()+"\n"+getEmail()+"\n"+getProoftype()+"\n"+getProofid());
