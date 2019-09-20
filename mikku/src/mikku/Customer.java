@@ -7,7 +7,6 @@ public class Customer {
 	private String email;
 	private String prooftype;
 	private String proofid;
-	//static int a=0;
 	static int a=0;
 	public String getName() {
 		return name;
@@ -49,7 +48,7 @@ public class Customer {
 	void register()
 	{
 		++a;
-		System.out.println(getName()+"\n"+getAddress()+"\n"+getContact()+"\n"+getEmail()+"\n"+getProoftype()+"\n"+getProofid());
+		System.out.println("name		:"+getName()+"\n"+"address		:"+getAddress()+"\n"+"contactno	:"+getContact()+"\n"+"email		:"+getEmail()+"\n"+"proof type	:"+getProoftype()+"\n"+"proof Id	:"+getProofid());
 		System.out.println("You have registered successfully. Your register number is "+a);
 	}
 }

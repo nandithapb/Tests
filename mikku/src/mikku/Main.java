@@ -2,33 +2,23 @@ package mikku;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 public class Main 
 {
 	public static void main(String args[]) throws IOException
 	{
-		//register
 		String name;
 		String address;
 		String contact;
 		String email;
 		String prooftype;
 		String proofid;
-		String n;
-		//room
 		String ac;
 		String cot;
 		String cable;
 		String wifi;
 		String laundary;
 		int roomNo;
-		
 		BufferedReader b= new BufferedReader(new InputStreamReader(System.in));
-		//Scanner b=new Scanner(System.in);
-		
-		do
-		{
-			//for register name
 		System.out.println("enter your name");
 		name=b.readLine();
 		System.out.println("enter your address");
@@ -99,7 +89,5 @@ public class Main
 		}
 		}
 		}while(choice!=3);
-		n=b.readLine();
-		}while(n.equals("y"));
 		}
 }
