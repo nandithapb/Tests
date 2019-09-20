@@ -50,13 +50,13 @@ public class Main
 		nanditha.setProofid(proofid);
 		nanditha.register();
 		int total=0;
-		
+		int choice;
 		Hotelroom room=new Hotelroom();
 		String flag = null;
 		do
 		{
 		System.out.println("Menu\n1.Book\n2.Check status\n3.Exit\nEnter your choice");
-		int choice=Integer.parseInt(b.readLine());
+		 choice=Integer.parseInt(b.readLine());
 		switch(choice)
 		{
 		case 1:
@@ -98,7 +98,7 @@ public class Main
 			break;
 		}
 		}
-		}while(flag.equalsIgnoreCase("yes"));
+		}while(choice!=3);
 		n=b.readLine();
 		}while(n.equals("y"));
 		}
